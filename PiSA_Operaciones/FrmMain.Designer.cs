@@ -34,8 +34,6 @@
             this.LblRutaZSD137 = new System.Windows.Forms.Label();
             this.TbxRutaZLO10 = new System.Windows.Forms.TextBox();
             this.TbxRutaZSD137 = new System.Windows.Forms.TextBox();
-            this.BtnRutaZLO10 = new System.Windows.Forms.Button();
-            this.BtnRutaZSD137 = new System.Windows.Forms.Button();
             this.GboxRutasBD = new System.Windows.Forms.GroupBox();
             this.LblRutaVLO6F = new System.Windows.Forms.Label();
             this.BtnRutaZLO22N = new System.Windows.Forms.Button();
@@ -43,6 +41,9 @@
             this.BtnRutaVLO6F = new System.Windows.Forms.Button();
             this.TbxRutaZLO22N = new System.Windows.Forms.TextBox();
             this.LblRutaZLO22N = new System.Windows.Forms.Label();
+            this.BtnRutaZSD137 = new System.Windows.Forms.Button();
+            this.BtnRutaZLO10 = new System.Windows.Forms.Button();
+            this.BtnDtPrimarios = new System.Windows.Forms.Button();
             this.GboxRutasBD.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +79,7 @@
             // 
             // TbxRutaZLO10
             // 
+            this.TbxRutaZLO10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TbxRutaZLO10.Enabled = false;
             this.TbxRutaZLO10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TbxRutaZLO10.Location = new System.Drawing.Point(63, 19);
@@ -88,6 +90,7 @@
             // 
             // TbxRutaZSD137
             // 
+            this.TbxRutaZSD137.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TbxRutaZSD137.Enabled = false;
             this.TbxRutaZSD137.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TbxRutaZSD137.Location = new System.Drawing.Point(63, 48);
@@ -95,32 +98,6 @@
             this.TbxRutaZSD137.Size = new System.Drawing.Size(600, 23);
             this.TbxRutaZSD137.TabIndex = 4;
             this.TbxRutaZSD137.TabStop = false;
-            // 
-            // BtnRutaZLO10
-            // 
-            this.BtnRutaZLO10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRutaZLO10.Image = global::PiSA_Operaciones.Properties.Resources.xl_16;
-            this.BtnRutaZLO10.Location = new System.Drawing.Point(669, 19);
-            this.BtnRutaZLO10.Name = "BtnRutaZLO10";
-            this.BtnRutaZLO10.Size = new System.Drawing.Size(80, 23);
-            this.BtnRutaZLO10.TabIndex = 5;
-            this.BtnRutaZLO10.Text = "Buscar";
-            this.BtnRutaZLO10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnRutaZLO10.UseVisualStyleBackColor = true;
-            this.BtnRutaZLO10.Click += new System.EventHandler(this.BtnRutaZLO10_Click);
-            // 
-            // BtnRutaZSD137
-            // 
-            this.BtnRutaZSD137.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRutaZSD137.Image = global::PiSA_Operaciones.Properties.Resources.xl_16;
-            this.BtnRutaZSD137.Location = new System.Drawing.Point(669, 48);
-            this.BtnRutaZSD137.Name = "BtnRutaZSD137";
-            this.BtnRutaZSD137.Size = new System.Drawing.Size(80, 23);
-            this.BtnRutaZSD137.TabIndex = 6;
-            this.BtnRutaZSD137.Text = "Buscar";
-            this.BtnRutaZSD137.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnRutaZSD137.UseVisualStyleBackColor = true;
-            this.BtnRutaZSD137.Click += new System.EventHandler(this.BtnRutaZSD137_Click);
             // 
             // GboxRutasBD
             // 
@@ -138,7 +115,7 @@
             this.GboxRutasBD.Controls.Add(this.LblRutaZSD137);
             this.GboxRutasBD.Location = new System.Drawing.Point(12, 30);
             this.GboxRutasBD.Name = "GboxRutasBD";
-            this.GboxRutasBD.Size = new System.Drawing.Size(1560, 164);
+            this.GboxRutasBD.Size = new System.Drawing.Size(1560, 88);
             this.GboxRutasBD.TabIndex = 7;
             this.GboxRutasBD.TabStop = false;
             // 
@@ -155,11 +132,12 @@
             // BtnRutaZLO22N
             // 
             this.BtnRutaZLO22N.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRutaZLO22N.Image = global::PiSA_Operaciones.Properties.Resources.xl_16;
+            this.BtnRutaZLO22N.Image = ((System.Drawing.Image)(resources.GetObject("BtnRutaZLO22N.Image")));
             this.BtnRutaZLO22N.Location = new System.Drawing.Point(1461, 45);
             this.BtnRutaZLO22N.Name = "BtnRutaZLO22N";
             this.BtnRutaZLO22N.Size = new System.Drawing.Size(80, 23);
             this.BtnRutaZLO22N.TabIndex = 12;
+            this.BtnRutaZLO22N.TabStop = false;
             this.BtnRutaZLO22N.Text = "Buscar";
             this.BtnRutaZLO22N.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnRutaZLO22N.UseVisualStyleBackColor = true;
@@ -167,6 +145,7 @@
             // 
             // TbxRutaVLO6F
             // 
+            this.TbxRutaVLO6F.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TbxRutaVLO6F.Enabled = false;
             this.TbxRutaVLO6F.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TbxRutaVLO6F.Location = new System.Drawing.Point(855, 16);
@@ -178,11 +157,12 @@
             // BtnRutaVLO6F
             // 
             this.BtnRutaVLO6F.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRutaVLO6F.Image = global::PiSA_Operaciones.Properties.Resources.xl_16;
+            this.BtnRutaVLO6F.Image = ((System.Drawing.Image)(resources.GetObject("BtnRutaVLO6F.Image")));
             this.BtnRutaVLO6F.Location = new System.Drawing.Point(1461, 16);
             this.BtnRutaVLO6F.Name = "BtnRutaVLO6F";
             this.BtnRutaVLO6F.Size = new System.Drawing.Size(80, 23);
             this.BtnRutaVLO6F.TabIndex = 11;
+            this.BtnRutaVLO6F.TabStop = false;
             this.BtnRutaVLO6F.Text = "Buscar";
             this.BtnRutaVLO6F.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnRutaVLO6F.UseVisualStyleBackColor = true;
@@ -190,6 +170,7 @@
             // 
             // TbxRutaZLO22N
             // 
+            this.TbxRutaZLO22N.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TbxRutaZLO22N.Enabled = false;
             this.TbxRutaZLO22N.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TbxRutaZLO22N.Location = new System.Drawing.Point(855, 45);
@@ -208,11 +189,55 @@
             this.LblRutaZLO22N.TabIndex = 8;
             this.LblRutaZLO22N.Text = "ZLO22N";
             // 
+            // BtnRutaZSD137
+            // 
+            this.BtnRutaZSD137.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRutaZSD137.Image = ((System.Drawing.Image)(resources.GetObject("BtnRutaZSD137.Image")));
+            this.BtnRutaZSD137.Location = new System.Drawing.Point(669, 48);
+            this.BtnRutaZSD137.Name = "BtnRutaZSD137";
+            this.BtnRutaZSD137.Size = new System.Drawing.Size(80, 23);
+            this.BtnRutaZSD137.TabIndex = 6;
+            this.BtnRutaZSD137.TabStop = false;
+            this.BtnRutaZSD137.Text = "Buscar";
+            this.BtnRutaZSD137.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnRutaZSD137.UseVisualStyleBackColor = true;
+            this.BtnRutaZSD137.Click += new System.EventHandler(this.BtnRutaZSD137_Click);
+            // 
+            // BtnRutaZLO10
+            // 
+            this.BtnRutaZLO10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRutaZLO10.Image = global::PiSA_Operaciones.Properties.Resources.xl_16;
+            this.BtnRutaZLO10.Location = new System.Drawing.Point(669, 19);
+            this.BtnRutaZLO10.Name = "BtnRutaZLO10";
+            this.BtnRutaZLO10.Size = new System.Drawing.Size(80, 23);
+            this.BtnRutaZLO10.TabIndex = 5;
+            this.BtnRutaZLO10.TabStop = false;
+            this.BtnRutaZLO10.Text = "Buscar";
+            this.BtnRutaZLO10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnRutaZLO10.UseVisualStyleBackColor = true;
+            this.BtnRutaZLO10.Click += new System.EventHandler(this.BtnRutaZLO10_Click);
+            // 
+            // BtnDtPrimarios
+            // 
+            this.BtnDtPrimarios.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDtPrimarios.Image = global::PiSA_Operaciones.Properties.Resources.transport_32;
+            this.BtnDtPrimarios.Location = new System.Drawing.Point(291, 124);
+            this.BtnDtPrimarios.Name = "BtnDtPrimarios";
+            this.BtnDtPrimarios.Size = new System.Drawing.Size(94, 74);
+            this.BtnDtPrimarios.TabIndex = 13;
+            this.BtnDtPrimarios.TabStop = false;
+            this.BtnDtPrimarios.Text = "Generar\r\nDT Primarios";
+            this.BtnDtPrimarios.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnDtPrimarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnDtPrimarios.UseVisualStyleBackColor = true;
+            this.BtnDtPrimarios.Click += new System.EventHandler(this.BtnDtPrimarios_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1584, 861);
+            this.Controls.Add(this.BtnDtPrimarios);
             this.Controls.Add(this.GboxRutasBD);
             this.Controls.Add(this.LblTituloRutas);
             this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -247,6 +272,7 @@
         private System.Windows.Forms.Button BtnRutaVLO6F;
         private System.Windows.Forms.TextBox TbxRutaZLO22N;
         private System.Windows.Forms.Label LblRutaZLO22N;
+        private System.Windows.Forms.Button BtnDtPrimarios;
     }
 }
 
