@@ -63,6 +63,16 @@ namespace PiSA_Operaciones.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap export_24 {
+            get {
+                object obj = ResourceManager.GetObject("export_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap transport_32 {
             get {
                 object obj = ResourceManager.GetObject("transport_32", resourceCulture);

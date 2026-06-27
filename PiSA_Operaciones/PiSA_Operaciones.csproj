@@ -126,6 +126,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ConfiguracionColumna.cs" />
     <Compile Include="Classes\DtPrimario.cs" />
     <Compile Include="Classes\DtPrimarioRecord.cs" />
     <Compile Include="Classes\DtPrimarioVLO6F.cs" />
@@ -152,6 +153,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Resources\Syncfusion.SfDataGrid.WinForms.es-MX.resx" />
+    <EmbeddedResource Include="Resources\Syncfusion.SfDataGrid.WinForms.resx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -168,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="pharmacy.ico" />
+    <None Include="Resources\export_24.png" />
     <None Include="Resources\transport_32.png" />
     <None Include="Resources\xl_16.png" />
   </ItemGroup>

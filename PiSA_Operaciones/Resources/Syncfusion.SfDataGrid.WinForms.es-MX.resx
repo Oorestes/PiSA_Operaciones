@@ -117,14 +117,151 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="transport_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\transport_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AddNewRowText" xml:space="preserve">
+    <value>Haga clic aquí para agregar una nueva fila</value>
   </data>
-  <data name="xl_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\xl_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ChooseColumn" xml:space="preserve">
+    <value>Elija una columna</value>
   </data>
-  <data name="export_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\export_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ColumnChooser_Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="ColumnChooser_OK" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="FilterControl_After" xml:space="preserve">
+    <value>Posterior a</value>
+  </data>
+  <data name="FilterControl_AfterOrEqual" xml:space="preserve">
+    <value>Posterior o igual a</value>
+  </data>
+  <data name="FilterControl_And" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="FilterControl_Before" xml:space="preserve">
+    <value>Anterior a</value>
+  </data>
+  <data name="FilterControl_BeforeOrEqual" xml:space="preserve">
+    <value>Anterior o igual a</value>
+  </data>
+  <data name="FilterControl_BeginsWith" xml:space="preserve">
+    <value>Empieza con</value>
+  </data>
+  <data name="FilterControl_Blanks" xml:space="preserve">
+    <value>(Vacios)</value>
+  </data>
+  <data name="FilterControl_Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="FilterControl_ClearFilter" xml:space="preserve">
+    <value>Limpiar filtro</value>
+  </data>
+  <data name="FilterControl_Contains" xml:space="preserve">
+    <value>Contiene</value>
+  </data>
+  <data name="FilterControl_DateFilter" xml:space="preserve">
+    <value>Filtro de fecha</value>
+  </data>
+  <data name="FilterControl_DateSortAscending" xml:space="preserve">
+    <value>Ordenar de Antiguos a Recientes</value>
+  </data>
+  <data name="FilterControl_DateSortDescending" xml:space="preserve">
+    <value>Ordenar de Recientes a Antiguos</value>
+  </data>
+  <data name="FilterControl_DoesNotBeginWith" xml:space="preserve">
+    <value>No empieza con</value>
+  </data>
+  <data name="FilterControl_DoesNotEndWith" xml:space="preserve">
+    <value>No termina con</value>
+  </data>
+  <data name="FilterControl_DoesNotContain" xml:space="preserve">
+    <value>No contiene</value>
+  </data>
+  <data name="FilterControl_Done" xml:space="preserve">
+    <value>Completado</value>
+  </data>
+  <data name="FilterControl_Empty" xml:space="preserve">
+    <value>Vacio</value>
+  </data>
+  <data name="FilterControl_EndsWith" xml:space="preserve">
+    <value>Termina con</value>
+  </data>
+  <data name="FilterControl_EnterValidFilterValue" xml:space="preserve">
+    <value>Ingrese un valor de filtro válido</value>
+  </data>
+  <data name="FilterControl_Equals" xml:space="preserve">
+    <value>Igual</value>
+  </data>
+  <data name="FilterControl_FilterDescription" xml:space="preserve">
+    <value>Seleccione una fila dónde:</value>
+  </data>
+  <data name="FilterControl_GreaterThan" xml:space="preserve">
+    <value>Mayor qué</value>
+  </data>
+  <data name="FilterControl_GreaterThanorEqual" xml:space="preserve">
+    <value>Mayor o igual qué</value>
+  </data>
+  <data name="FilterControl_LessThan" xml:space="preserve">
+    <value>Menor qué</value>
+  </data>
+  <data name="FilterControl_LessThanorEqual" xml:space="preserve">
+    <value>Menor o igual qué</value>
+  </data>
+  <data name="FilterControl_NoItems" xml:space="preserve">
+    <value>Sin objetos</value>
+  </data>
+  <data name="FilterControl_NoMatch" xml:space="preserve">
+    <value>Sin coincidencia</value>
+  </data>
+  <data name="FilterControl_NotEmpty" xml:space="preserve">
+    <value>No vacio</value>
+  </data>
+  <data name="FilterControl_NotEquals" xml:space="preserve">
+    <value>No igual</value>
+  </data>
+  <data name="FilterControl_NotNull" xml:space="preserve">
+    <value>No Null</value>
+  </data>
+  <data name="FilterControl_Null" xml:space="preserve">
+    <value>Null</value>
+  </data>
+  <data name="FilterControl_NumberFilter" xml:space="preserve">
+    <value>Filtro de Número</value>
+  </data>
+  <data name="FilterControl_NumberSortAscending" xml:space="preserve">
+    <value>Ordenar de Menor a Mayor</value>
+  </data>
+  <data name="FilterControl_NumberSortDescending" xml:space="preserve">
+    <value>Ordenar de Mayor a Menor</value>
+  </data>
+  <data name="FilterControl_Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="FilterControl_Or" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="FilterControl_SelectAll" xml:space="preserve">
+    <value>(Seleccionar todo)</value>
+  </data>
+  <data name="FilterControl_TextFilter" xml:space="preserve">
+    <value>Filtro de texto</value>
+  </data>
+  <data name="FilterControl_TextSortAscending" xml:space="preserve">
+    <value>Ordenar A a Z</value>
+  </data>
+  <data name="FilterControl_TextSortDescending" xml:space="preserve">
+    <value>Ordenar Z a A</value>
+  </data>
+  <data name="GroupPanel_GroupDropAreaText" xml:space="preserve">
+    <value>Arrastre una columna para agrupar</value>
+  </data>
+  <data name="INotifyDataErrorInfo_DefaultErrorMessage" xml:space="preserve">
+    <value>La fila contiene un error</value>
+  </data>
+  <data name="SfDataPager_PageCount" xml:space="preserve">
+    <value>de</value>
+  </data>
+  <data name="SfDataPager_PageDescription" xml:space="preserve">
+    <value>Página</value>
   </data>
 </root>

@@ -36,15 +36,18 @@
             this.TbxRutaZSD137 = new System.Windows.Forms.TextBox();
             this.GboxRutasBD = new System.Windows.Forms.GroupBox();
             this.LblRutaVLO6F = new System.Windows.Forms.Label();
-            this.BtnRutaZLO22N = new System.Windows.Forms.Button();
             this.TbxRutaVLO6F = new System.Windows.Forms.TextBox();
-            this.BtnRutaVLO6F = new System.Windows.Forms.Button();
             this.TbxRutaZLO22N = new System.Windows.Forms.TextBox();
             this.LblRutaZLO22N = new System.Windows.Forms.Label();
+            this.sfDataGridMain = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            this.BtnExportar = new System.Windows.Forms.Button();
+            this.BtnDtPrimarios = new System.Windows.Forms.Button();
+            this.BtnRutaZLO22N = new System.Windows.Forms.Button();
+            this.BtnRutaVLO6F = new System.Windows.Forms.Button();
             this.BtnRutaZSD137 = new System.Windows.Forms.Button();
             this.BtnRutaZLO10 = new System.Windows.Forms.Button();
-            this.BtnDtPrimarios = new System.Windows.Forms.Button();
             this.GboxRutasBD.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sfDataGridMain)).BeginInit();
             this.SuspendLayout();
             // 
             // LblTituloRutas
@@ -129,20 +132,6 @@
             this.LblRutaVLO6F.TabIndex = 7;
             this.LblRutaVLO6F.Text = "VLO6F";
             // 
-            // BtnRutaZLO22N
-            // 
-            this.BtnRutaZLO22N.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRutaZLO22N.Image = ((System.Drawing.Image)(resources.GetObject("BtnRutaZLO22N.Image")));
-            this.BtnRutaZLO22N.Location = new System.Drawing.Point(1461, 45);
-            this.BtnRutaZLO22N.Name = "BtnRutaZLO22N";
-            this.BtnRutaZLO22N.Size = new System.Drawing.Size(80, 23);
-            this.BtnRutaZLO22N.TabIndex = 12;
-            this.BtnRutaZLO22N.TabStop = false;
-            this.BtnRutaZLO22N.Text = "Buscar";
-            this.BtnRutaZLO22N.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnRutaZLO22N.UseVisualStyleBackColor = true;
-            this.BtnRutaZLO22N.Click += new System.EventHandler(this.BtnRutaZLO22N_Click);
-            // 
             // TbxRutaVLO6F
             // 
             this.TbxRutaVLO6F.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -153,20 +142,6 @@
             this.TbxRutaVLO6F.Size = new System.Drawing.Size(600, 23);
             this.TbxRutaVLO6F.TabIndex = 9;
             this.TbxRutaVLO6F.TabStop = false;
-            // 
-            // BtnRutaVLO6F
-            // 
-            this.BtnRutaVLO6F.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRutaVLO6F.Image = ((System.Drawing.Image)(resources.GetObject("BtnRutaVLO6F.Image")));
-            this.BtnRutaVLO6F.Location = new System.Drawing.Point(1461, 16);
-            this.BtnRutaVLO6F.Name = "BtnRutaVLO6F";
-            this.BtnRutaVLO6F.Size = new System.Drawing.Size(80, 23);
-            this.BtnRutaVLO6F.TabIndex = 11;
-            this.BtnRutaVLO6F.TabStop = false;
-            this.BtnRutaVLO6F.Text = "Buscar";
-            this.BtnRutaVLO6F.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnRutaVLO6F.UseVisualStyleBackColor = true;
-            this.BtnRutaVLO6F.Click += new System.EventHandler(this.BtnRutaVLO6F_Click);
             // 
             // TbxRutaZLO22N
             // 
@@ -188,6 +163,72 @@
             this.LblRutaZLO22N.Size = new System.Drawing.Size(55, 17);
             this.LblRutaZLO22N.TabIndex = 8;
             this.LblRutaZLO22N.Text = "ZLO22N";
+            // 
+            // sfDataGridMain
+            // 
+            this.sfDataGridMain.AccessibleName = "Table";
+            this.sfDataGridMain.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sfDataGridMain.Location = new System.Drawing.Point(12, 212);
+            this.sfDataGridMain.Name = "sfDataGridMain";
+            this.sfDataGridMain.Size = new System.Drawing.Size(1560, 637);
+            this.sfDataGridMain.TabIndex = 14;
+            this.sfDataGridMain.AutoGeneratingColumn += new Syncfusion.WinForms.DataGrid.Events.AutoGeneratingColumnEventHandler(this.sfDataGridMain_AutoGeneratingColumn);
+            // 
+            // BtnExportar
+            // 
+            this.BtnExportar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnExportar.Image = global::PiSA_Operaciones.Properties.Resources.export_24;
+            this.BtnExportar.Location = new System.Drawing.Point(1473, 144);
+            this.BtnExportar.Name = "BtnExportar";
+            this.BtnExportar.Size = new System.Drawing.Size(80, 54);
+            this.BtnExportar.TabIndex = 15;
+            this.BtnExportar.Text = "Exportar";
+            this.BtnExportar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnExportar.UseVisualStyleBackColor = true;
+            this.BtnExportar.Click += new System.EventHandler(this.BtnExportar_Click);
+            // 
+            // BtnDtPrimarios
+            // 
+            this.BtnDtPrimarios.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDtPrimarios.Image = global::PiSA_Operaciones.Properties.Resources.transport_32;
+            this.BtnDtPrimarios.Location = new System.Drawing.Point(291, 124);
+            this.BtnDtPrimarios.Name = "BtnDtPrimarios";
+            this.BtnDtPrimarios.Size = new System.Drawing.Size(94, 74);
+            this.BtnDtPrimarios.TabIndex = 13;
+            this.BtnDtPrimarios.TabStop = false;
+            this.BtnDtPrimarios.Text = "Generar\r\nDT Primarios";
+            this.BtnDtPrimarios.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnDtPrimarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnDtPrimarios.UseVisualStyleBackColor = true;
+            this.BtnDtPrimarios.Click += new System.EventHandler(this.BtnDtPrimarios_Click);
+            // 
+            // BtnRutaZLO22N
+            // 
+            this.BtnRutaZLO22N.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRutaZLO22N.Image = ((System.Drawing.Image)(resources.GetObject("BtnRutaZLO22N.Image")));
+            this.BtnRutaZLO22N.Location = new System.Drawing.Point(1461, 45);
+            this.BtnRutaZLO22N.Name = "BtnRutaZLO22N";
+            this.BtnRutaZLO22N.Size = new System.Drawing.Size(80, 23);
+            this.BtnRutaZLO22N.TabIndex = 12;
+            this.BtnRutaZLO22N.TabStop = false;
+            this.BtnRutaZLO22N.Text = "Buscar";
+            this.BtnRutaZLO22N.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnRutaZLO22N.UseVisualStyleBackColor = true;
+            this.BtnRutaZLO22N.Click += new System.EventHandler(this.BtnRutaZLO22N_Click);
+            // 
+            // BtnRutaVLO6F
+            // 
+            this.BtnRutaVLO6F.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRutaVLO6F.Image = ((System.Drawing.Image)(resources.GetObject("BtnRutaVLO6F.Image")));
+            this.BtnRutaVLO6F.Location = new System.Drawing.Point(1461, 16);
+            this.BtnRutaVLO6F.Name = "BtnRutaVLO6F";
+            this.BtnRutaVLO6F.Size = new System.Drawing.Size(80, 23);
+            this.BtnRutaVLO6F.TabIndex = 11;
+            this.BtnRutaVLO6F.TabStop = false;
+            this.BtnRutaVLO6F.Text = "Buscar";
+            this.BtnRutaVLO6F.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnRutaVLO6F.UseVisualStyleBackColor = true;
+            this.BtnRutaVLO6F.Click += new System.EventHandler(this.BtnRutaVLO6F_Click);
             // 
             // BtnRutaZSD137
             // 
@@ -217,26 +258,13 @@
             this.BtnRutaZLO10.UseVisualStyleBackColor = true;
             this.BtnRutaZLO10.Click += new System.EventHandler(this.BtnRutaZLO10_Click);
             // 
-            // BtnDtPrimarios
-            // 
-            this.BtnDtPrimarios.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDtPrimarios.Image = global::PiSA_Operaciones.Properties.Resources.transport_32;
-            this.BtnDtPrimarios.Location = new System.Drawing.Point(291, 124);
-            this.BtnDtPrimarios.Name = "BtnDtPrimarios";
-            this.BtnDtPrimarios.Size = new System.Drawing.Size(94, 74);
-            this.BtnDtPrimarios.TabIndex = 13;
-            this.BtnDtPrimarios.TabStop = false;
-            this.BtnDtPrimarios.Text = "Generar\r\nDT Primarios";
-            this.BtnDtPrimarios.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BtnDtPrimarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BtnDtPrimarios.UseVisualStyleBackColor = true;
-            this.BtnDtPrimarios.Click += new System.EventHandler(this.BtnDtPrimarios_Click);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1584, 861);
+            this.Controls.Add(this.BtnExportar);
+            this.Controls.Add(this.sfDataGridMain);
             this.Controls.Add(this.BtnDtPrimarios);
             this.Controls.Add(this.GboxRutasBD);
             this.Controls.Add(this.LblTituloRutas);
@@ -251,6 +279,7 @@
             this.Text = "PiSA :: Operaciones Backoffice";
             this.GboxRutasBD.ResumeLayout(false);
             this.GboxRutasBD.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sfDataGridMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,6 +302,8 @@
         private System.Windows.Forms.TextBox TbxRutaZLO22N;
         private System.Windows.Forms.Label LblRutaZLO22N;
         private System.Windows.Forms.Button BtnDtPrimarios;
+        private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGridMain;
+        private System.Windows.Forms.Button BtnExportar;
     }
 }
 
