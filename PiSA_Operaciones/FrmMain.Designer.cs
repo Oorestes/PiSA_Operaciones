@@ -40,12 +40,15 @@
             this.TbxRutaZLO22N = new System.Windows.Forms.TextBox();
             this.LblRutaZLO22N = new System.Windows.Forms.Label();
             this.sfDataGridMain = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            this.BtnAlcanceMeta = new System.Windows.Forms.Button();
             this.BtnExportar = new System.Windows.Forms.Button();
             this.BtnDtPrimarios = new System.Windows.Forms.Button();
             this.BtnRutaZLO22N = new System.Windows.Forms.Button();
             this.BtnRutaVLO6F = new System.Windows.Forms.Button();
             this.BtnRutaZSD137 = new System.Windows.Forms.Button();
             this.BtnRutaZLO10 = new System.Windows.Forms.Button();
+            this.ComboMeses = new System.Windows.Forms.ComboBox();
+            this.LblMesActual = new System.Windows.Forms.Label();
             this.GboxRutasBD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sfDataGridMain)).BeginInit();
             this.SuspendLayout();
@@ -174,6 +177,21 @@
             this.sfDataGridMain.TabIndex = 14;
             this.sfDataGridMain.AutoGeneratingColumn += new Syncfusion.WinForms.DataGrid.Events.AutoGeneratingColumnEventHandler(this.sfDataGridMain_AutoGeneratingColumn);
             // 
+            // BtnAlcanceMeta
+            // 
+            this.BtnAlcanceMeta.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAlcanceMeta.Image = global::PiSA_Operaciones.Properties.Resources.goals_32;
+            this.BtnAlcanceMeta.Location = new System.Drawing.Point(541, 124);
+            this.BtnAlcanceMeta.Name = "BtnAlcanceMeta";
+            this.BtnAlcanceMeta.Size = new System.Drawing.Size(134, 74);
+            this.BtnAlcanceMeta.TabIndex = 16;
+            this.BtnAlcanceMeta.TabStop = false;
+            this.BtnAlcanceMeta.Text = "Generar Alcance a la meta";
+            this.BtnAlcanceMeta.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnAlcanceMeta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnAlcanceMeta.UseVisualStyleBackColor = true;
+            this.BtnAlcanceMeta.Click += new System.EventHandler(this.BtnAlcanceMeta_Click);
+            // 
             // BtnExportar
             // 
             this.BtnExportar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -258,11 +276,34 @@
             this.BtnRutaZLO10.UseVisualStyleBackColor = true;
             this.BtnRutaZLO10.Click += new System.EventHandler(this.BtnRutaZLO10_Click);
             // 
+            // ComboMeses
+            // 
+            this.ComboMeses.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboMeses.FormattingEnabled = true;
+            this.ComboMeses.Location = new System.Drawing.Point(684, 150);
+            this.ComboMeses.Name = "ComboMeses";
+            this.ComboMeses.Size = new System.Drawing.Size(102, 25);
+            this.ComboMeses.TabIndex = 17;
+            this.ComboMeses.TabStop = false;
+            // 
+            // LblMesActual
+            // 
+            this.LblMesActual.AutoSize = true;
+            this.LblMesActual.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblMesActual.Location = new System.Drawing.Point(681, 130);
+            this.LblMesActual.Name = "LblMesActual";
+            this.LblMesActual.Size = new System.Drawing.Size(82, 17);
+            this.LblMesActual.TabIndex = 13;
+            this.LblMesActual.Text = "Mes actual:";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1584, 861);
+            this.Controls.Add(this.LblMesActual);
+            this.Controls.Add(this.ComboMeses);
+            this.Controls.Add(this.BtnAlcanceMeta);
             this.Controls.Add(this.BtnExportar);
             this.Controls.Add(this.sfDataGridMain);
             this.Controls.Add(this.BtnDtPrimarios);
@@ -304,6 +345,9 @@
         private System.Windows.Forms.Button BtnDtPrimarios;
         private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGridMain;
         private System.Windows.Forms.Button BtnExportar;
+        private System.Windows.Forms.Button BtnAlcanceMeta;
+        private System.Windows.Forms.ComboBox ComboMeses;
+        private System.Windows.Forms.Label LblMesActual;
     }
 }
 

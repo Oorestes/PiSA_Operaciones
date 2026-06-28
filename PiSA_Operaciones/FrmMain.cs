@@ -1,13 +1,31 @@
 ﻿using PiSA_Operaciones.Classes;
 using Syncfusion.WinForms.DataGrid.Enums;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace PiSA_Operaciones
 {
+    enum Meses
+    {
+        Enero,
+        Febrero,
+        Marzo,
+        Abril,
+        Mayo,
+        Junio,
+        Julio,
+        Agosto,
+        Septiembre,
+        Octubre,
+        Noviembre,
+        Diciembre
+    }
+
     public partial class FrmMain : Form
     {
         private static List<DtPrimarioRecord> _listaDtPrimarios = new List<DtPrimarioRecord>();
+        private static List<AlcanceMetaRecord> _listaAlcanceMeta = new List<AlcanceMetaRecord>();
         private string _lastExecutedReport = string.Empty;
         public FrmMain()
         {
@@ -17,6 +35,7 @@ namespace PiSA_Operaciones
             InitializeComponent();
 
             BtnExportar.Visible = false;
+            ComboMeses.Items.AddRange(Enum.GetNames(typeof(Meses)));
         }
 
         private void BtnRutaZLO10_Click(object sender, System.EventArgs e) => TbxRutaZLO10.Text = GetFilePath();
@@ -138,41 +157,178 @@ namespace PiSA_Operaciones
 
         private void sfDataGridMain_AutoGeneratingColumn(object sender, Syncfusion.WinForms.DataGrid.Events.AutoGeneratingColumnArgs e)
         {
-            if (_lastExecutedReport == "DtPrimarios")
+            ConfiguracionColumna _configuracionColumna = new ConfiguracionColumna();
+
+            if(_lastExecutedReport == "DtPrimarios" && mapaColumnasDtPrimario.TryGetValue(e.Column.MappingName, out ConfiguracionColumna DtPrimariosConfig))
+                _configuracionColumna = DtPrimariosConfig;
+
+            if (_lastExecutedReport == "AlcanceMeta" && mapaColumnasAlcanceMeta.TryGetValue(e.Column.MappingName, out ConfiguracionColumna AlcanceMetaConfig))
+                _configuracionColumna = AlcanceMetaConfig;
+
+            e.Column.HeaderText = _configuracionColumna.Titulo;
+
+            switch (_configuracionColumna.Formato)
             {
-                if(mapaColumnasDtPrimario.TryGetValue(e.Column.MappingName, out ConfiguracionColumna config)){
-                    e.Column.HeaderText = config.Titulo;
+                case TipoFormato.Texto:
+                    e.Column.CellStyle.HorizontalAlignment = HorizontalAlignment.Left;
+                    break;
 
-                    switch (config.Formato)
-                    {
-                        case TipoFormato.Texto:
-                            e.Column.CellStyle.HorizontalAlignment = HorizontalAlignment.Left;
-                            break;
+                case TipoFormato.Moneda:
+                    e.Column.Format = "C2";
+                    e.Column.CellStyle.HorizontalAlignment = HorizontalAlignment.Right;
+                    break;
 
-                        case TipoFormato.Moneda:
-                            e.Column.Format = "C2";
-                            e.Column.CellStyle.HorizontalAlignment = HorizontalAlignment.Right;
-                            break;
+                case TipoFormato.Fecha:
+                    e.Column.Format = "d";
+                    e.Column.CellStyle.HorizontalAlignment = HorizontalAlignment.Center;
+                    break;
 
-                        case TipoFormato.Fecha:
-                            e.Column.Format = "d";
-                            e.Column.CellStyle.HorizontalAlignment = HorizontalAlignment.Center;
-                            break;
+                case TipoFormato.Hora:
+                    e.Column.Format = "h:mm:ss AM/PM";
+                    e.Column.CellStyle.HorizontalAlignment = HorizontalAlignment.Center;
+                    break;
+            }
+        }
 
-                        case TipoFormato.Hora:
-                            e.Column.Format = "h:mm:ss AM/PM";
-                            e.Column.CellStyle.HorizontalAlignment = HorizontalAlignment.Center;
-                            break;
-                    }
+        private void BtnAlcanceMeta_Click(object sender, System.EventArgs e)
+        {
+            if (!ValidarRutasSeleccionadas()) return;
+            if(ComboMeses.SelectedIndex == -1)
+            {
+                MessageBox.Show("Se debe seleccionar un mes para poder continuar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                // Limpiar y vaciar el DataGrid antes de procesar los datos
+                LimpiarDataGrid();
+                _lastExecutedReport = "AlcanceMeta";
+
+                // Leer archivos
+                List<AlcanceMetaZLO10> listaZLO10 = AlcanceMeta.LeerZLO10(TbxRutaZLO10.Text);
+                _listaAlcanceMeta = AlcanceMeta.Leer22N(TbxRutaZLO22N.Text);
+                List<AlcanceMetaVLO6F> listaVL06F = AlcanceMeta.LeerVL06F(TbxRutaVLO6F.Text);
+                List<AlcanceMetaZSD137> listaZSD137 = AlcanceMeta.LeerZSD137(TbxRutaZSD137.Text);
+
+                // Procesado de datos
+                for (int i = 0; i < _listaAlcanceMeta.Count; i++)
+                {
+                    var dt = listaZLO10.Find(x => x.Entrega == _listaAlcanceMeta[i].AB);
+                    var vl06f = listaVL06F.Find(x => x.Entrega == _listaAlcanceMeta[i].AB);
+                    var zsd137 = listaZSD137.Find(x => x.DocumentoComercial == _listaAlcanceMeta[i].A);
+
+                    _listaAlcanceMeta[i].C = _listaAlcanceMeta[i].C == DateTime.MinValue ? null : _listaAlcanceMeta[i].C;
+                    _listaAlcanceMeta[i].N = _listaAlcanceMeta[i].N == DateTime.MinValue ? null : _listaAlcanceMeta[i].N;
+                    _listaAlcanceMeta[i].AE = _listaAlcanceMeta[i].AE == DateTime.MinValue ? null : _listaAlcanceMeta[i].AE;
+                    _listaAlcanceMeta[i].AG = _listaAlcanceMeta[i].AG == DateTime.MinValue ? null : _listaAlcanceMeta[i].AG;
+                    _listaAlcanceMeta[i].AJ = _listaAlcanceMeta[i].AJ == DateTime.MinValue ? null : _listaAlcanceMeta[i].AJ;
+                    _listaAlcanceMeta[i].AL = _listaAlcanceMeta[i].AL == DateTime.MinValue ? null : _listaAlcanceMeta[i].AL;
+                    _listaAlcanceMeta[i].AM = _listaAlcanceMeta[i].AM == DateTime.MinValue ? null : _listaAlcanceMeta[i].AM;
+                    _listaAlcanceMeta[i].AN = _listaAlcanceMeta[i].AN == DateTime.MinValue ? null : _listaAlcanceMeta[i].AN;
+                    _listaAlcanceMeta[i].AR = _listaAlcanceMeta[i].AR == DateTime.MinValue ? null : _listaAlcanceMeta[i].AR;
+                    _listaAlcanceMeta[i].AS = _listaAlcanceMeta[i].AS == DateTime.MinValue ? null : _listaAlcanceMeta[i].AS;
+                    _listaAlcanceMeta[i].BF = dt != null ? dt.DT : string.Empty;
+                    _listaAlcanceMeta[i].BG = vl06f != null ? vl06f.StatusMovimiento : string.Empty;
+                    _listaAlcanceMeta[i].BJ = zsd137 != null ? zsd137.Fecha : null;
+                    _listaAlcanceMeta[i].BP = vl06f != null ? vl06f.LugarDestino : string.Empty;
                 }
+
+                // Llenar Datagrid con la información procesada
+                sfDataGridMain.DataSource = _listaAlcanceMeta;
+                sfDataGridMain.AutoGenerateColumns = true;
+                sfDataGridMain.AllowFiltering = true;
+                sfDataGridMain.FilterRowPosition = RowPosition.Top;
+                sfDataGridMain.AutoSizeController.AutoSizeCalculationMode = AutoSizeCalculationMode.SmartFit;
+                sfDataGridMain.AutoSizeColumnsMode = AutoSizeColumnsMode.AllCells;
+
+                // Habilitar botón para exportar a Excel
+                BtnExportar.Visible = true;
+            }
+            catch
+            {
+                MessageBox.Show("Ocurrió un error al procesar los archivos!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void BtnExportar_Click(object sender, System.EventArgs e)
         {
-            if(_lastExecutedReport == "DtPrimarios") DtPrimario.CrearExcel(_listaDtPrimarios);
+            if (_lastExecutedReport == "DtPrimarios") DtPrimario.CrearExcel(_listaDtPrimarios);
+            if (_lastExecutedReport == "AlcanceMeta") AlcanceMeta.CrearExcel(_listaAlcanceMeta, ComboMeses.SelectedIndex);
 
             MessageBox.Show("Proceso finalizado!\nEl archivo generado se encuentra en el escritorio", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private readonly Dictionary<string, ConfiguracionColumna> mapaColumnasAlcanceMeta = new Dictionary<string, ConfiguracionColumna>
+        {
+            { "A", new ConfiguracionColumna { Titulo = "Documento comercial", Formato = TipoFormato.Texto } },
+            { "B", new ConfiguracionColumna { Titulo = "Posición (SD)", Formato = TipoFormato.Texto } },
+            { "C", new ConfiguracionColumna { Titulo = "Fecha de pedido", Formato = TipoFormato.Texto } },
+            { "D", new ConfiguracionColumna { Titulo = "Clase doc.ventas", Formato = TipoFormato.Texto } },
+            { "E", new ConfiguracionColumna { Titulo = "Cliente", Formato = TipoFormato.Texto } },
+            { "F", new ConfiguracionColumna { Titulo = "Solicitante", Formato = TipoFormato.Texto } },
+            { "G", new ConfiguracionColumna { Titulo = "Destino", Formato = TipoFormato.Texto } },
+            { "H", new ConfiguracionColumna { Titulo = "Destinatario de Mercancias", Formato = TipoFormato.Texto } },
+            { "I", new ConfiguracionColumna { Titulo = "Organización ventas", Formato = TipoFormato.Texto } },
+            { "J", new ConfiguracionColumna { Titulo = "Canal distribución", Formato = TipoFormato.Texto } },
+            { "K", new ConfiguracionColumna { Titulo = "Oficina de ventas", Formato = TipoFormato.Texto } },
+            { "L", new ConfiguracionColumna { Titulo = "Grupo de vendedores", Formato = TipoFormato.Texto } },
+            { "M", new ConfiguracionColumna { Titulo = "Zona de ventas", Formato = TipoFormato.Texto } },
+            { "N", new ConfiguracionColumna { Titulo = "Fecha pref.entrega", Formato = TipoFormato.Texto } },
+            { "O", new ConfiguracionColumna { Titulo = "N° pedido cliente", Formato = TipoFormato.Texto } },
+            { "P", new ConfiguracionColumna { Titulo = "Material", Formato = TipoFormato.Texto } },
+            { "Q", new ConfiguracionColumna { Titulo = "Texto breve de material", Formato = TipoFormato.Texto } },
+            { "R", new ConfiguracionColumna { Titulo = "Grupo de artículos", Formato = TipoFormato.Texto } },
+            { "S", new ConfiguracionColumna { Titulo = "Cantidad de pedido", Formato = TipoFormato.Texto } },
+            { "T", new ConfiguracionColumna { Titulo = "Un.medida venta", Formato = TipoFormato.Texto } },
+            { "U", new ConfiguracionColumna { Titulo = "Cantidad-acum-confir", Formato = TipoFormato.Texto } },
+            { "V", new ConfiguracionColumna { Titulo = "Cantidad pedida - cantidad confirmada", Formato = TipoFormato.Texto } },
+            { "W", new ConfiguracionColumna { Titulo = "Centro", Formato = TipoFormato.Texto } },
+            { "X", new ConfiguracionColumna { Titulo = "Valor neto", Formato = TipoFormato.Texto } },
+            { "Y", new ConfiguracionColumna { Titulo = "Precio neto", Formato = TipoFormato.Texto } },
+            { "Z", new ConfiguracionColumna { Titulo = "Motivo de rechazo", Formato = TipoFormato.Texto } },
+            { "AA", new ConfiguracionColumna { Titulo = "Status total crédito", Formato = TipoFormato.Texto } },
+            { "AB", new ConfiguracionColumna { Titulo = "Entrega", Formato = TipoFormato.Texto } },
+            { "AC", new ConfiguracionColumna { Titulo = "Posición de entrega", Formato = TipoFormato.Texto } },
+            { "AD", new ConfiguracionColumna { Titulo = "Tipo de Documento", Formato = TipoFormato.Texto } },
+            { "AE", new ConfiguracionColumna { Titulo = "Fecha de Entrega", Formato = TipoFormato.Texto } },
+            { "AF", new ConfiguracionColumna { Titulo = "Cantidad entrega", Formato = TipoFormato.Texto } },
+            { "AG", new ConfiguracionColumna { Titulo = "Fe.mov.mcía.real", Formato = TipoFormato.Texto } },
+            { "AH", new ConfiguracionColumna { Titulo = "Factura", Formato = TipoFormato.Texto } },
+            { "AI", new ConfiguracionColumna { Titulo = "Tipo de documento2", Formato = TipoFormato.Texto } },
+            { "AJ", new ConfiguracionColumna { Titulo = "Fecha de Factura", Formato = TipoFormato.Texto } },
+            { "AK", new ConfiguracionColumna { Titulo = "Programa para control", Formato = TipoFormato.Texto } },
+            { "AL", new ConfiguracionColumna { Titulo = "Fe.act.desp.expd.", Formato = TipoFormato.Texto } },
+            { "AM", new ConfiguracionColumna { Titulo = "Inic.actual transp.", Formato = TipoFormato.Texto } },
+            { "AN", new ConfiguracionColumna { Titulo = "Inicio en UTC", Formato = TipoFormato.Texto } },
+            { "AO", new ConfiguracionColumna { Titulo = "Tipo de contratista", Formato = TipoFormato.Texto } },
+            { "AP", new ConfiguracionColumna { Titulo = "Clase de transporte", Formato = TipoFormato.Texto } },
+            { "AQ", new ConfiguracionColumna { Titulo = "Agente servicios", Formato = TipoFormato.Texto } },
+            { "AR", new ConfiguracionColumna { Titulo = "Creado el", Formato = TipoFormato.Texto } },
+            { "AS", new ConfiguracionColumna { Titulo = "Fecha documento", Formato = TipoFormato.Texto } },
+            { "AT", new ConfiguracionColumna { Titulo = "Tp.doc.subsiguiente", Formato = TipoFormato.Texto } },
+            { "AU", new ConfiguracionColumna { Titulo = "Tp.doc.subsiguiente3", Formato = TipoFormato.Texto } },
+            { "AV", new ConfiguracionColumna { Titulo = "Carácter 1", Formato = TipoFormato.Texto } },
+            { "AW", new ConfiguracionColumna { Titulo = "Motivo pedido", Formato = TipoFormato.Texto } },
+            { "AX", new ConfiguracionColumna { Titulo = "Denominación", Formato = TipoFormato.Texto } },
+            { "AY", new ConfiguracionColumna { Titulo = "Pedido Bloqueo", Formato = TipoFormato.Texto } },
+            { "AZ", new ConfiguracionColumna { Titulo = "Piezas negadas", Formato = TipoFormato.Texto } },
+            { "BA", new ConfiguracionColumna { Titulo = "Tipo Pedido", Formato = TipoFormato.Texto } },
+            { "BB", new ConfiguracionColumna { Titulo = "Mercados", Formato = TipoFormato.Texto } },
+            { "BC", new ConfiguracionColumna { Titulo = "Suma de Entrega", Formato = TipoFormato.Texto } },
+            { "BD", new ConfiguracionColumna { Titulo = "Venta real", Formato = TipoFormato.Texto } },
+            { "BE", new ConfiguracionColumna { Titulo = "Aplica", Formato = TipoFormato.Texto } },
+            { "BF", new ConfiguracionColumna { Titulo = "Transporte", Formato = TipoFormato.Texto } },
+            { "BG", new ConfiguracionColumna { Titulo = "Para facturar", Formato = TipoFormato.Texto } },
+            { "BH", new ConfiguracionColumna { Titulo = "Venta sin confirmar", Formato = TipoFormato.Texto } },
+            { "BI", new ConfiguracionColumna { Titulo = "SEMANA", Formato = TipoFormato.Texto } },
+            { "BJ", new ConfiguracionColumna { Titulo = "DATOS B", Formato = TipoFormato.Texto } },
+            { "BK", new ConfiguracionColumna { Titulo = "Estatus Factura", Formato = TipoFormato.Texto } },
+            { "BL", new ConfiguracionColumna { Titulo = "MES creación", Formato = TipoFormato.Texto } },
+            { "BM", new ConfiguracionColumna { Titulo = "Num Pedido", Formato = TipoFormato.Texto } },
+            { "BN", new ConfiguracionColumna { Titulo = "MES Factura", Formato = TipoFormato.Texto } },
+            { "BO", new ConfiguracionColumna { Titulo = "MES de Entrega", Formato = TipoFormato.Texto } },
+            { "BP", new ConfiguracionColumna { Titulo = "Lugar Destino", Formato = TipoFormato.Texto } },
+        };
     }
 }

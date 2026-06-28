@@ -126,6 +126,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AlcanceMeta.cs" />
+    <Compile Include="Classes\AlcanceMetaRecord.cs" />
+    <Compile Include="Classes\AlcanceMetaVLO6F.cs" />
+    <Compile Include="Classes\AlcanceMetaZLO10.cs" />
+    <Compile Include="Classes\AlcanceMetaZSD137.cs" />
     <Compile Include="Classes\ConfiguracionColumna.cs" />
     <Compile Include="Classes\DtPrimario.cs" />
     <Compile Include="Classes\DtPrimarioRecord.cs" />
@@ -171,6 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="pharmacy.ico" />
+    <None Include="Resources\goals_32.png" />
     <None Include="Resources\export_24.png" />
     <None Include="Resources\transport_32.png" />
     <None Include="Resources\xl_16.png" />
