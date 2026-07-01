@@ -137,6 +137,11 @@
     <Compile Include="Classes\DtPrimarioVLO6F.cs" />
     <Compile Include="Classes\DtPrimarioZLO22N.cs" />
     <Compile Include="Classes\DtPrimarioZSD137.cs" />
+    <Compile Include="Classes\SeguimientoUnidad.cs" />
+    <Compile Include="Classes\SeguimientoUnidadRecord.cs" />
+    <Compile Include="Classes\SeguimientoUnidadVLO6F.cs" />
+    <Compile Include="Classes\SeguimientoUnidadZLO10.cs" />
+    <Compile Include="Classes\SeguimientoUnidadZSD137.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="pharmacy.ico" />
+    <None Include="Resources\tracking_32.png" />
     <None Include="Resources\goals_32.png" />
     <None Include="Resources\export_24.png" />
     <None Include="Resources\transport_32.png" />
