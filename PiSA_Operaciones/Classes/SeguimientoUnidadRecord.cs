@@ -13,6 +13,7 @@ namespace PiSA_Operaciones.Classes
         public DateTime? G { get; set; } // FechaCita
         public DateTime? H { get; set; } // HoraCita
         public DateTime? I { get; set; } // HoraArribo
+        public string Factura { get; set; }
         public string J { get; set; } // Centro
         public int K { get; set; } // Cantidad
         public float L { get; set; } // PrecioNeto
@@ -25,6 +26,5 @@ namespace PiSA_Operaciones.Classes
         public string S { get; set; } // FechaReprogramacion
         public string T { get; set; } // Destinatario
         public string Material { get; set; }
-        public string Factura { get; set; }
     }
 }

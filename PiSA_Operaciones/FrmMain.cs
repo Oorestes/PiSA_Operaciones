@@ -402,7 +402,7 @@ namespace PiSA_Operaciones
             { "F", new ConfiguracionColumna { Titulo = "DT", Formato = TipoFormato.Texto } },
             { "G", new ConfiguracionColumna { Titulo = "Fecha cita", Formato = TipoFormato.Fecha } },
             { "H", new ConfiguracionColumna { Titulo = "Hora cita", Formato = TipoFormato.Hora } },
-            { "I", new ConfiguracionColumna { Titulo = "Hora de arribo", Formato = TipoFormato.Hora } },
+            { "Factura", new ConfiguracionColumna { Titulo = "Factura", Formato = TipoFormato.Texto } },
             { "J", new ConfiguracionColumna { Titulo = "Centro", Formato = TipoFormato.Texto } },
             { "K", new ConfiguracionColumna { Titulo = "Cantidad entregada", Formato = TipoFormato.Entero } },
             { "L", new ConfiguracionColumna { Titulo = "Precio neto", Formato = TipoFormato.Moneda } },

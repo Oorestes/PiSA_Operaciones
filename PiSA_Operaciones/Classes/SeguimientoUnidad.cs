@@ -180,7 +180,7 @@ namespace PiSA_Operaciones.Classes
                     hoja.Cell(_filaactual, 6).Value = fila.F;
                     hoja.Cell(_filaactual, 7).Value = fila.G == DateTime.MinValue ? null : fila.G;
                     hoja.Cell(_filaactual, 8).Value = fila.H;
-                    hoja.Cell(_filaactual, 9).Value = fila.I;
+                    hoja.Cell(_filaactual, 9).Value = fila.Factura;
                     hoja.Cell(_filaactual, 10).Value = fila.J;
                     hoja.Cell(_filaactual, 11).Value = fila.K;
                     hoja.Cell(_filaactual, 12).Value = fila.L;
@@ -212,6 +212,8 @@ namespace PiSA_Operaciones.Classes
                     foreach (var fila in _listaSeguimientoUnidades)
                     {
                         if (fila.F == string.Empty) continue;
+                        if (fila.G == DateTime.MinValue) continue;
+                        if (hoy.Month != fila.G.Value.Month) continue;
 
                         hojaCC.Cell(_filaCC, 1).Value = fila.A;
                         hojaCC.Cell(_filaCC, 2).Value = fila.F;
